@@ -36,8 +36,19 @@ def get_birthdays():
     """
     return birthdays
 
-@app.on_event("startup")
-@repeat_every(seconds=20) # 20 SECONDS USED FOR TESTING
+# @app.on_event("startup")
+# @repeat_every(seconds=20) # 20 SECONDS USED FOR TESTING
+# def tweet_birthdays():
+#     """
+#     Tweet all birthdays from database
+#     """
+#     tweetid = []
+#     for birthday in birthdays:
+#         if datetime.datetime.strptime(birthday["birthday"], "%d-%m-%Y").date() == datetime.datetime.now().date():
+#             tweetid.append(post_tweet(f"Happy birthday @{birthday['username']}!"))
+#     print("TWEETED:",tweetid)
+
+@app.get("/tweet")
 def tweet_birthdays():
     """
     Tweet all birthdays from database
