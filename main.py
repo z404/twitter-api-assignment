@@ -58,3 +58,7 @@ def tweet_birthdays():
         if datetime.datetime.strptime(birthday["birthday"], "%d-%m-%Y").date() == datetime.datetime.now().date():
             tweetid.append(post_tweet(f"Happy birthday @{birthday['username']}!"))
     print("TWEETED:",tweetid)
+
+@app.get("/")
+def index():
+    return {"message": "Hello! Welcome to the birthday bot! Navigate to /docs to see the API documentation."}
